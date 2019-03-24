@@ -49,11 +49,12 @@ Objected-Oriented Programming is an approach to programming, or a programming pa
     console.log(user.getUserInfo())
 
 /*
-A big disadvantage with inheritance is that the base class (super class) that has too much influence on its descendants (objects instantiated through it), which makes it very difficult to refactor in an application that has been scaled, as one little change in the base class could potentially break other components that were instantiated through it. And when trying to figure out where the refactoring has to be made, following the connection from descendants all the way up to the base class can be incredibly tedious.
+A big disadvantage with inheritance is that the base class (super class) that has too much influence on its descendants (objects instantiated through it), which makes it very difficult to refactor in an application that has been scaled, as one little change in the base class could potentially break other components that were instantiated through it. And when trying to figure out where the refactoring has to be made, following the connection from descendants all the way up to the base class or in other words, following the inheritance tree to the top can be incredibly tedious.
 
-This means that applications or code that don't require to be changed frequently or to a large extent will not suffer as much as a large application with millions of users would by this particular flaw of OOP; therefore keeping the inheritance tree as shallow as possible is a good practice.
+This means that applications or code that don't require to be changed frequently or to a large extent will not suffer as much as a large application with millions of users would by this particular flaw of OOP; therefore keeping the inheritance tree as shallow as possible is a good practice as a deep inheritance tree can become very unmaintainable.
 */
 
 /*
 2. Prototypal Inheritance (ES5):
+    - 
 */
