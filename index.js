@@ -1,13 +1,13 @@
 // Trying to understand OOP.
 
 /*
-DEFINITION:
+-- DEFINITION --
 Objected-Oriented Programming is an approach to programming, or a programming paradigm that revolves around organising your data and functionality through objects and their methods. This means assigning certain types of information to its own singular object; keeping any relevant information in its own scope. And any kind of functionality that is associated to a particular type of information will be stored in its relevant object as a 'method'. Having too many variables/functions declared within the global scope can increase chances of creating 'spaghetti code' that is incredibly hard to maintain and follow. Organising through objects will at the very least help with maintaining code and understanding what the dependencies are and how everything fits together.
 */
 
 
 /*
-WAYS TO IMPLEMENT OOP:
+-- WAYS TO IMPLEMENT OOP --
 
 1. Class-based Inheritance (ES6):
     - Classes are essentially 'blue prints' for how an object is going to be built, and every new object will be instantiated through this class(blue print) through a constructor function. These new objects that are instantiated through the class are mutable; meaning that their data will change if the class changes.
@@ -47,6 +47,12 @@ WAYS TO IMPLEMENT OOP:
     let user = new User('John', 'Doe', 30, 'Accountant', 'john.doe@gmail.com', 'john123')
 
     console.log(user.getUserInfo())
+
+/*
+A big disadvantage with inheritance is that the base class (super class) that has too much influence on its descendants (objects instantiated through it), which makes it very difficult to refactor in an application that has been scaled, as one little change in the base class could potentially break other components that were instantiated through it. And when trying to figure out where the refactoring has to be made, following the connection from descendants all the way up to the base class can be incredibly tedious.
+
+This means that applications or code that don't require to be changed frequently or to a large extent will not suffer as much as a large application with millions of users would by this particular flaw of OOP; therefore keeping the inheritance tree as shallow as possible is a good practice.
+*/
 
 /*
 2. Prototypal Inheritance (ES5):
