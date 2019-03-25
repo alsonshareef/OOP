@@ -99,3 +99,11 @@ This means that applications or code that don't require to be changed frequently
 
     // console.log(member)
 
+/*
+-- DISADVANTAGES OF OOP --
+    - Every instantiation is carrying a whole lot more than what is relevant to that instance, which are the properties and methods of all the parenting objects that they were instantiated from. This is through the inheritance of their prototype(s). This is similar to the issue with class-based inheritance; dealing with a deep inheritance heirachy and its fragility at a large scale.
+
+    - With an application built with OOP, there will be a whole bunch of objects talking to each other. How do you decide what functionality goes where and what would be the most effecient ways to keep them? This organizational issue gets worse with scale.
+
+    - 
+*/
