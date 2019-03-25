@@ -46,7 +46,7 @@ Objected-Oriented Programming is an approach to programming, or a programming pa
 
     let user = new User('John', 'Doe', 30, 'Accountant', 'john.doe@gmail.com', 'john123')
 
-    console.log(user.getUserInfo())
+    // console.log(user.getUserInfo())
 
 /*
 A big disadvantage with inheritance is that the base class (super class) that has too much influence on its descendants (objects instantiated through it), which makes it very difficult to refactor in an application that has been scaled, as one little change in the base class could potentially break other components that were instantiated through it. And when trying to figure out where the refactoring has to be made, following the connection from descendants all the way up to the base class or in other words, following the inheritance tree to the top can be incredibly tedious.
@@ -56,5 +56,46 @@ This means that applications or code that don't require to be changed frequently
 
 /*
 2. Prototypal Inheritance (ES5):
-    - 
+    - Prototypal Inheritance is where objects will inherit from other objects through their prototype object. These new objects will be instantiated through object literals, factory functions, and the Object.create() function which requires a prototype object to be passed in as the paramater.
+
+    - Whenever changes are made to an objects prototype, any instantiations that were made through that object will experience the changes, as well as any 'sub-class' objects that have the parent objects props extended to them.
+
+    - * An important note is that the class-based inheritance syntax is purely 'syntactic sugar' that sits on top of the prototypal inheritance approach, meaning that everything under the hood of class-based inheritance is just prototype inheritance code. This is due to the fact that Javascript is a prototype-oriented language in its vanilla form, but ES6 syntax allows you to write prototype based code by writing class based code.
+
 */
+
+// An object represented as a person created using prototypal inheritance.
+    function Human(firstName, lastName, age, occupation){
+        this.firstName = firstName
+        this.lastName = lastName
+        this.age = age
+        this.occupation = occupation
+    }
+
+// Methods to be inherited by instantiations of the Person object will be stored in the Person objects prototype.
+    Human.prototype.introduction = function(){
+        return `Hi! my name is ${this.firstName} ${this.lastName}. I am ${this.age} years old and I am a ${this.occupation}.`
+    }
+
+// New instance of the Person object through using 'new' keyword.
+    let man = new Human('Bill', 'Simpson', 40, 'Lawyer')
+    // console.log(man.introduction())
+
+// An object call User represented as a 'sub-class' by extending the Person objects properties to iself as well as having its own unique properties.
+    function Member(firstName, lastName, age, occupation, email, password) {
+        Human.call(this, firstName, lastName, age, occupation)
+        this.email = email
+        this.password = password
+    }
+
+    Member.prototype = Object.create(Human.prototype);
+
+    Member.prototype.getEmail = function() {
+        return this.email
+    }
+
+// New instance of Member object
+    let member = new Member('Jerry', 'Jimson', 25, 'Cashier', 'jerryjim@gmail.com', 'jerry123')
+
+    // console.log(member)
+
